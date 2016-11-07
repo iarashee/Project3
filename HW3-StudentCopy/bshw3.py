@@ -10,3 +10,9 @@
 
 # Deliverables
 # Make sure the new page is uploaded to your GitHub account.
+
+f = open("index.hetml", "w")
+
+html doc
+
+f.write(html.doc)
