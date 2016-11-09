@@ -17,7 +17,7 @@ fname = "madlibtest2.txt" # need a file with this name in directory
 
 f = open(fname, 'r')
 para = f.read()
-tokens = nltk.word_tokenize(para)
+tokens = nltk.word_tokenize(para) #No need to tokenize in hw. just slice [:150]
 print("TOKENS")
 print(tokens)
 tagged_tokens = nltk.pos_tag(tokens) # gives us a tagged list of tuples
