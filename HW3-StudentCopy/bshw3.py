@@ -19,10 +19,11 @@ base_url = 'http://collemc.people.si.umich.edu/data/bshw3StarterFile.html'
 r = requests.get(base_url)
 soup = BeautifulSoup(r.text, "lxml")
 
-for line in soup.findall(class_="field-item"):
-	if line.a == "student":
-		lin.a.replace("student", "AMAZING student")
-	print (line.a)
+for line in soup.find_all("p"):
+	for word in line:
+		if line == "students":
+			line = line.replace("students", "AMAZING students")
+	print (word)
 
 print ("Done.")
 
