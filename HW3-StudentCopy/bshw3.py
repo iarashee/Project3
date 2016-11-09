@@ -10,9 +10,25 @@
 
 # Deliverables
 # Make sure the new page is uploaded to your GitHub account.
+import requests
+from bs4 import BeautifulSoup
 
-f = open("index.hetml", "w")
+print ("\nIbrahim A. Rasheed, BeautifulSoup Project")
 
-html doc
+base_url = 'http://collemc.people.si.umich.edu/data/bshw3StarterFile.html'
+r = requests.get(base_url)
+soup = BeautifulSoup(r.text, "lxml")
 
-f.write(html.doc)
+for line in soup.findall(class_="field-item"):
+	if line.a == "student":
+		lin.a.replace("student", "AMAZING student")
+	print (line.a)
+
+print ("Done.")
+
+
+#f = open("index.html", "w")
+
+#html doc
+
+#f.write(html.doc)

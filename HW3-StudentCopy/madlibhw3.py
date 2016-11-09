@@ -15,17 +15,18 @@ import nltk
 import random
 from nltk.book import text2
 
-token = nltk.word_tokenize #No need to tokenize in hw. just slice [:150]
-tokens = token[:150]
+ #No need to tokenize in hw. just slice [:150]
+#iterate create string of text
+string = ""
+tokens = text2[:150]
+for word in tokens:
+	string = string + " " + word
+print (string)
 print("TOKENS")
 print(tokens)
 tagged_tokens = nltk.pos_tag(tokens) # gives us a tagged list of tuples
 print("TAGGED TOKENS")
 print(tagged_tokens)
-if debug:
-	print ("First few tagged tokens are:")
-	for tup in tagged_tokens[:5]:
-		print (tup)
 
 tagmap = {"NN":"a noun","NNS":"a plural noun","VB":"a verb","JJ":"an adjective"}
 substitution_probabilities = {"NN":.1,"NNS":.2,"VB":.25,"JJ":.25}
