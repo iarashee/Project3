@@ -7,6 +7,37 @@
 
 # Be prepared to change the search term during demo.
 
+import tweepy
+from textblob import TextBlob
 
-print("Average subjectivity is")
-print("Average polarity is")
+#Unique Account Info
+access_token = 
+access_token_secret = 
+consumer_key = 
+consumer_secret = 
+
+#Normal Auth
+auth = tweepy.OAuthHandler(consumer_key,consumer_secret)
+auth.set_access_token(access_token,access_token_secret)
+
+api = tweepy.API(auth)
+
+#Search Term
+print ("\n\n**START**\n\n")
+searched_tweets = api.search("'Crooked' @realDonaldTrump")
+
+l_subjectivity = []
+l_polarity = []
+
+for tweet in searched_tweets:
+	y = TextBlob(tweet.text)
+	l_subjectivity.append(y.sentiment.subjectivity)
+	l_polarity.append(y.sentiment.polarity)
+	print (tweet.text)
+
+avg_subjectivity = sum(l_subjectivity) / len(l_subjectivity)
+avg_polarity = sum(l_polarity) / len(l_polarity)
+
+print("\nAverage subjectivity is", avg_subjectivity)
+print("Average polarity is", avg_polarity)
+print ("\n\n**END**\n\n")

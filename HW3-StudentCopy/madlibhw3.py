@@ -20,9 +20,12 @@ from nltk.book import text2
 string = ""
 
 tokens = text2[:150]
-#for word in tokens:
-#	string = string + " " + word
-print (tokens)
+for word in tokens:
+	string = string + " " + word
+
+print ("**Original Text**")
+print (string)
+#print (tokens)
 
 tagged_tokens = nltk.pos_tag(tokens) # gives us a tagged list of tuples
 
@@ -44,6 +47,7 @@ for (word, tag) in tagged_tokens:
 		new_word = input("Please enter %s:\n" % (tagmap[tag]))
 		final_words.append(spaced(new_word))
 
+print ("**Final Text**")
 print ("".join(final_words))
 
 ##

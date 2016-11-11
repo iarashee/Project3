@@ -14,7 +14,7 @@ import requests
 from bs4 import BeautifulSoup
 import re
 
-print ("\nIbrahim A. Rasheed, BeautifulSoup Project")
+print ("Working...")
 
 base_url = 'http://collemc.people.si.umich.edu/data/bshw3StarterFile.html'
 r = requests.get(base_url)
@@ -25,8 +25,9 @@ p = p.replace("student", "AMAZING student")
 p = p.replace("https://testbed.files.wordpress.com/2012/09/bsi_exposition_041316_192.jpg", "media/FullSizeRender.jpg")
 p = p.replace("logo2.png", "media/logo.png")
 
-print (p)
-print ("Done.")
+
+print ("Success. \nFile name: output.html")
 
 f = open("output.html", "w")
 f.write(p)
+f.close()
