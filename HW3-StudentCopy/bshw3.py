@@ -12,6 +12,7 @@
 # Make sure the new page is uploaded to your GitHub account.
 import requests
 from bs4 import BeautifulSoup
+import re
 
 print ("\nIbrahim A. Rasheed, BeautifulSoup Project")
 
@@ -19,17 +20,13 @@ base_url = 'http://collemc.people.si.umich.edu/data/bshw3StarterFile.html'
 r = requests.get(base_url)
 soup = BeautifulSoup(r.text, "lxml")
 
-for line in soup.find_all("p"):
-	for word in line:
-		if line == "students":
-			line = line.replace("students", "AMAZING students")
-	print (word)
+p = soup.prettify()
+p = p.replace("student", "AMAZING student")
+p = p.replace("https://testbed.files.wordpress.com/2012/09/bsi_exposition_041316_192.jpg", "media/FullSizeRender.jpg")
+p = p.replace("logo2.png", "media/logo.png")
 
+print (p)
 print ("Done.")
 
-
-#f = open("index.html", "w")
-
-#html doc
-
-#f.write(html.doc)
+f = open("output.html", "w")
+f.write(p)

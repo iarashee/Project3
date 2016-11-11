@@ -18,18 +18,16 @@ from nltk.book import text2
  #No need to tokenize in hw. just slice [:150]
 #iterate create string of text
 string = ""
-tokens = text2[:150]
-for word in tokens:
-	string = string + " " + word
-print (string)
-print("TOKENS")
-print(tokens)
-tagged_tokens = nltk.pos_tag(tokens) # gives us a tagged list of tuples
-print("TAGGED TOKENS")
-print(tagged_tokens)
 
-tagmap = {"NN":"a noun","NNS":"a plural noun","VB":"a verb","JJ":"an adjective"}
-substitution_probabilities = {"NN":.1,"NNS":.2,"VB":.25,"JJ":.25}
+tokens = text2[:150]
+#for word in tokens:
+#	string = string + " " + word
+print (tokens)
+
+tagged_tokens = nltk.pos_tag(tokens) # gives us a tagged list of tuples
+
+tagmap = {"NN":"a noun","NNS":"a plural noun","VB":"a verb","JJ":"an adjective", "RB": "an adverb"}
+substitution_probabilities = {"NN":.15,"NNS":.10,"VB":.10,"JJ":.10, "RB":.10}
 
 def spaced(word):
 	if word in [",", ".", "?", "!", ":"]:
@@ -38,7 +36,6 @@ def spaced(word):
 		return " " + word
 
 final_words = []
-
 
 for (word, tag) in tagged_tokens:
 	if tag not in substitution_probabilities or random.random() > substitution_probabilities[tag]:
